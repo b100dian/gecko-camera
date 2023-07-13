@@ -345,9 +345,9 @@ bool DroidVideoEncoder::init(VideoEncoderMetadata metadata)
     m_metadata.color_format = -1;
 
     {
-        uint32_t supportedFormats[32];
+        uint32_t supportedFormats[128];
         unsigned int nFormats = droid_media_codec_get_supported_color_formats(
-                                    &m_metadata.parent, 1, supportedFormats, 32);
+                                    &m_metadata.parent, 1, supportedFormats, 128);
 
         LOGI("Found " << nFormats << " color formats supported:");
         for (unsigned int i = 0; i < nFormats; i++) {
