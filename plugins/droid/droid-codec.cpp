@@ -67,7 +67,8 @@ public:
         m_template.height = rect->bottom - rect->top;
 #define _ALIGN_SIZE(sz, align) (((sz) + (align) - 1) & ~((align) - 1))
         if (md->hal_format == c.QOMX_COLOR_FormatYUV420PackedSemiPlanar32m) {
-            unsigned int height = _ALIGN_SIZE(md->height, 32);
+            // unsigned int height = _ALIGN_SIZE(md->height, 32);
+            uint32_t height = md->height;
             m_template.yStride = m_template.cStride = _ALIGN_SIZE(md->width, 128);
             m_template.cb = (const uint8_t *)(m_template.yStride * height);
             m_template.cr = (const uint8_t *)(m_template.yStride * height + 1);
